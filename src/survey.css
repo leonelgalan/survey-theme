@@ -1,16 +1,39 @@
+.wrapper {
+  max-width: 1400px;
+}
+
+.content {
+  height: 700px;
+  padding-top: 50px;
+}
+
+
+.emailContent {
+  height: 601px;
+  padding-top: 50px;
+}
+
+
+.lead {
+  font-weight: bold;
+}
+
+.footer {
+  text-align: center;
+}
+
 .survey {
-  margin: 70px auto 0;
   border-style: solid;
   border-width: 1px;
   border-color: #383838;
-  height: 800px;
+  height: 700px;
   max-width: 1400px;
 }
 
 .card {
   width: 30rem;
   max-width: 95%;
-  margin: 10% auto;
+  margin: 0 auto;
 }
 
 .conditional {
@@ -29,9 +52,8 @@ background: rgba(0,0,0,50%);
 width: 600px;
 z-index: 1000;
 padding: 5px;
-color: white !important;
+/* color: white !important; */
 }
 
 .form-text {
-  color: white;
 }
