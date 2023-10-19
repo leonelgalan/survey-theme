@@ -1,17 +1,20 @@
 {
   "files": {
-    "main.css": "/survey-theme/static/css/main.0d064f50.css",
-    "main.js": "/survey-theme/static/js/main.cd67b6e4.js",
+    "main.css": "/survey-theme/static/css/main.b03de424.css",
+    "main.js": "/survey-theme/static/js/main.dfc08f2f.js",
     "static/js/787.0a70e05d.chunk.js": "/survey-theme/static/js/787.0a70e05d.chunk.js",
     "static/media/bootstrap-icons.woff?": "/survey-theme/static/media/bootstrap-icons.449ad8adf6ae0424b7ed.woff",
     "static/media/bootstrap-icons.woff2?": "/survey-theme/static/media/bootstrap-icons.dea24bf5a7646d8b84e7.woff2",
     "index.html": "/survey-theme/index.html",
-    "main.0d064f50.css.map": "/survey-theme/static/css/main.0d064f50.css.map",
-    "main.cd67b6e4.js.map": "/survey-theme/static/js/main.cd67b6e4.js.map",
+    "static/media/icon_happy.svg": "/survey-theme/static/media/icon_happy.c347979ddc433416efa2f47a1a6e99e5.svg",
+    "static/media/icon_sad.svg": "/survey-theme/static/media/icon_sad.dd7dcf22c6cc23aa4fe56a9190904b44.svg",
+    "static/media/icon_neutral.svg": "/survey-theme/static/media/icon_neutral.de75baec7047bc39e257931fd97388bd.svg",
+    "main.b03de424.css.map": "/survey-theme/static/css/main.b03de424.css.map",
+    "main.dfc08f2f.js.map": "/survey-theme/static/js/main.dfc08f2f.js.map",
     "787.0a70e05d.chunk.js.map": "/survey-theme/static/js/787.0a70e05d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0d064f50.css",
-    "static/js/main.cd67b6e4.js"
+    "static/css/main.b03de424.css",
+    "static/js/main.dfc08f2f.js"
   ]
 }
