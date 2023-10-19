@@ -2,7 +2,7 @@ import React from "react";
 import { marked } from "marked";
 
 function Email(props) {
-  const { primary, tertiary } = props.themes;
+  const { tertiary } = props.themes;
   const {
     mobile,
     emailReplyTo,
@@ -56,7 +56,12 @@ function Email(props) {
             >
               {logo && logoOutside && (
                 <div
-                  style={{ margin: "0 auto", maxWidth: "95%", width: "30rem" }}
+                  style={{
+                    padding: "16px",
+                    margin: "0 auto",
+                    maxWidth: "95%",
+                    width: "30rem",
+                  }}
                 >
                   <img
                     src={logo}
@@ -76,9 +81,8 @@ function Email(props) {
                   {emailButtonType === "simple" && (
                     <button
                       type="button"
-                      className="btn btn-secondary d-block mx-auto my-3"
+                      className="btn brand d-block mx-auto my-3"
                       style={{
-                        backgroundColor: primary,
                         width: "120px",
                         height: "38px",
                         borderRadius: buttonRoundness,

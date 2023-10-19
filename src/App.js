@@ -30,7 +30,7 @@ function App() {
     emailSubject: "Your Feedback is Important",
     emailLead: "Thank you for your feedback!",
     emailText: "We appreciate your feedback!",
-    emailFooter: "© 2021 Example Inc. All rights reserved.",
+    emailFooter: "Your friends at **Example**\n\n<small>Street Address</small>",
     settings: undefined,
     emailButtonType: "simple",
   });

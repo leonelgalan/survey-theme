@@ -61,9 +61,8 @@ function Survey(props) {
                 />
                 <button
                   type="button"
-                  className="conditional btn btn-secondary"
+                  className="btn brand"
                   style={{
-                    backgroundColor: primary,
                     width: "60px",
                     height: "38px",
                     borderRadius: props.buttonRoundness,

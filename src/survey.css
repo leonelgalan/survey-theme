@@ -43,7 +43,7 @@
 .logo {
   display: block;
   max-width: 90%;
-  margin: 16px auto;
+  margin: 0 auto;
 }
 
 #collapseTarget {
@@ -56,4 +56,8 @@ padding: 5px;
 }
 
 .form-text {
+}
+
+.card-body .logo {
+  margin: 16px auto;
 }
