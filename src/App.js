@@ -31,9 +31,10 @@ function App() {
     emailCentered: true,
     emailLead: "Thank you for your feedback!",
     emailText: "We appreciate your feedback!",
-    emailFooter: "Your friends at **Example**\n\n<small>Street Address</small>",
+    emailSignature: "**Example**<br />\n<small>example.com</small>",
     settings: undefined,
-    emailButtonType: "simple",
+    emailCTA: "simple",
+    emailButton: "Send Survey",
   });
 
   const handleChange = (event) => {
@@ -64,106 +65,71 @@ function App() {
 
   const { logo, backgroundImage, settings } = state;
 
-  useEffect(() => {
-    let fileReader,
-      isCancel = false;
-    if (backgroundImage) {
-      fileReader = new FileReader();
-      fileReader.onload = (e) => {
-        const { result } = e.target;
-        if (result && !isCancel) {
-          setState({
-            ...state,
-            backgroundImageURL: result,
-          });
+  const useFileReader = (file, method, callback) => {
+    useEffect(() => {
+      let fileReader,
+        isCancel = false;
+      if (file) {
+        fileReader = new FileReader();
+        fileReader.onload = (e) => {
+          const { result } = e.target;
+          if (result && !isCancel) {
+            callback(result);
+          }
+        };
+        fileReader[method](file);
+      }
+      return () => {
+        isCancel = true;
+        if (fileReader && fileReader.readyState === 1) {
+          fileReader.abort();
         }
       };
-      fileReader.readAsDataURL(backgroundImage);
-    }
-    return () => {
-      isCancel = true;
-      if (fileReader && fileReader.readyState === 1) {
-        fileReader.abort();
-      }
-    };
-  }, [state, backgroundImage]);
+    }, [file, method, callback]);
+  };
 
-  useEffect(() => {
-    let fileReader,
-      isCancel = false;
-    if (logo) {
-      fileReader = new FileReader();
-      fileReader.onload = (e) => {
-        const { result } = e.target;
-        if (result && !isCancel) {
-          setState({
-            ...state,
-            logoURL: result,
-          });
-          // setLogoURL(result);
-        }
-      };
-      fileReader.readAsDataURL(logo);
-    }
-    return () => {
-      isCancel = true;
-      if (fileReader && fileReader.readyState === 1) {
-        fileReader.abort();
-      }
-    };
-  }, [state, logo]);
+  useFileReader(backgroundImage, "readAsDataURL", (result) => {
+    setState({
+      ...state,
+      backgroundImageURL: result,
+    });
+  });
 
-  useEffect(() => {
-    let fileReader,
-      isCancel = false;
-    if (settings) {
-      fileReader = new FileReader();
-      fileReader.onload = (e) => {
-        const { result } = e.target;
-        if (result && !isCancel) {
-          setState({ ...JSON.parse(result), settings: undefined });
-        }
-      };
-      fileReader.readAsText(settings);
-    }
-    return () => {
-      isCancel = true;
-      if (fileReader && fileReader.readyState === 1) {
-        fileReader.abort();
-      }
-    };
-  }, [state, settings]);
+  useFileReader(logo, "readAsDataURL", (result) => {
+    setState({
+      ...state,
+      logoURL: result,
+    });
+  });
 
-  const downloadSettings = () => {
+  useFileReader(settings, "readAsText", (result) => {
+    setState({ ...JSON.parse(result), settings: undefined });
+  });
+
+  const downloadSettings = (event) => {
     const myData = {
       ...state,
       logo: undefined,
       backgroundImage: undefined,
       settings: undefined,
     };
-    console.log(downloadSettings);
-    // is an object and I wrote it to file as
-    // json
 
-    // create file in browser
     const fileName = "settings";
     const json = JSON.stringify(myData, null, 2);
     const blob = new Blob([json], { type: "application/json" });
     const href = URL.createObjectURL(blob);
 
-    console.log(href);
-
-    // create "a" HTLM element with href to file
     const link = document.createElement("a");
     link.href = href;
     link.download = fileName + ".json";
     document.body.appendChild(link);
     link.click();
-    console.log(link);
 
     // clean up "a" element & remove ObjectURL
     document.body.removeChild(link);
     URL.revokeObjectURL(href);
+
+    event.preventDefault();
   };
 
   const dark = color(color(state.primary).formatHsl()).l < 0.65;
@@ -625,18 +591,36 @@ function App() {
                     </div>
                     <div className="row mb-3">
                       <label
-                        htmlFor="emailFooter"
+                        htmlFor="emailSignature"
                         className="col-sm-2 col-form-label"
                       >
-                        Footer
+                        Signature
                       </label>
                       <div className="col-sm-10">
                         <textarea
                           className="form-control"
-                          id="emailFooter"
-                          value={state.emailFooter}
-                          name="emailFooter"
+                          id="emailSignature"
+                          value={state.emailSignature}
+                          name="emailSignature"
                           rows="4"
+                          onChange={handleChange}
+                        />
+                      </div>
+                    </div>
+                    <div className="row mb-3">
+                      <label
+                        htmlFor="emailButton"
+                        className="col-sm-2 col-form-label"
+                      >
+                        Button Text
+                      </label>
+                      <div className="col-sm-10">
+                        <input
+                          className="form-control"
+                          type="text"
+                          id="emailButton"
+                          value={state.emailButton}
+                          name="emailButton"
                           onChange={handleChange}
                         />
                       </div>
@@ -645,15 +629,15 @@ function App() {
                       <input
                         className="form-check-input"
                         type="radio"
-                        name="emailButtonType"
-                        id="emailButtonTypeSimple"
+                        name="emailCTA"
+                        id="emailCTASimple"
                         value="simple"
                         onChange={handleChange}
-                        checked={state.emailButtonType === "simple"}
+                        checked={state.emailCTA === "simple"}
                       />
                       <label
                         className="form-check-label"
-                        htmlFor="emailButtonTypeSimple"
+                        htmlFor="emailCTASimple"
                       >
                         Simple (Button)
                       </label>
@@ -662,16 +646,13 @@ function App() {
                       <input
                         className="form-check-input"
                         type="radio"
-                        name="emailButtonType"
-                        id="emailButtonTypeNps"
+                        name="emailCTA"
+                        id="emailCTANps"
                         value="nps"
                         onChange={handleChange}
-                        checked={state.emailButtonType === "nps"}
+                        checked={state.emailCTA === "nps"}
                       />
-                      <label
-                        className="form-check-label"
-                        htmlFor="emailButtonTypeNps"
-                      >
+                      <label className="form-check-label" htmlFor="emailCTANps">
                         NPS (Numpad)
                       </label>
                     </div>
@@ -680,15 +661,15 @@ function App() {
                       <input
                         className="form-check-input"
                         type="radio"
-                        name="emailButtonType"
-                        id="emailButtonTypeCsat"
+                        name="emailCTA"
+                        id="emailCTACsat"
                         value="csat"
                         onChange={handleChange}
-                        checked={state.emailButtonType === "csat"}
+                        checked={state.emailCTA === "csat"}
                       />
                       <label
                         className="form-check-label"
-                        htmlFor="emailButtonTypeCsat"
+                        htmlFor="emailCTACsat"
                       >
                         CSAT (Emojis)
                       </label>

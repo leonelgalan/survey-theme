@@ -16,8 +16,9 @@ function Email(props) {
     emailLead,
     emailText,
     emailCentered,
-    emailFooter,
-    emailButtonType,
+    emailSignature,
+    emailCTA,
+    emailButton,
   } = props;
 
   function adjustRoundness(x = "") {
@@ -34,9 +35,6 @@ function Email(props) {
 
   const formRoundness = adjustRoundness(props.formRoundness);
   const borderRadius = adjustRoundness(props.buttonRoundness);
-
-  window.emailFooter = emailFooter;
-  window.marked = marked;
 
   return (
     <>
@@ -92,7 +90,7 @@ function Email(props) {
                   >
                     {emailText}
                   </p>
-                  {emailButtonType === "simple" && (
+                  {emailCTA === "simple" && (
                     <button
                       type="button"
                       className="btn brand d-block mx-auto my-3"
@@ -101,9 +99,11 @@ function Email(props) {
                         height: "38px",
                         borderRadius: borderRadius,
                       }}
-                    />
+                    >
+                      {emailButton}
+                    </button>
                   )}
-                  {emailButtonType === "nps" && (
+                  {emailCTA === "nps" && (
                     <div className="nps container text-center">
                       <div className="row g-2">
                         <div className="col">
@@ -205,7 +205,7 @@ function Email(props) {
                       </div>
                     </div>
                   )}
-                  {emailButtonType === "csat" && (
+                  {emailCTA === "csat" && (
                     <div className="csat container text-center">
                       <div className="row g-2">
                         <div className="col">
@@ -228,9 +228,23 @@ function Email(props) {
                   )}
                   <div
                     className="footer"
-                    dangerouslySetInnerHTML={{ __html: marked(emailFooter) }}
+                    dangerouslySetInnerHTML={{
+                      __html: marked(emailSignature || ""),
+                    }}
                   ></div>
                 </div>
+              </div>
+              <div
+                className="footer"
+                style={{
+                  margin: "20px auto",
+                  maxWidth: "95%",
+                  width: "30rem",
+                }}
+              >
+                <span className="placeholder" style={{ width: "150px" }}></span>
+                <span className="placeholder" style={{ width: "100px" }}></span>
+                <span className="placeholder" style={{ width: "175px" }}></span>
               </div>
             </div>
           </div>
