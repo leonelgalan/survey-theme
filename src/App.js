@@ -240,11 +240,11 @@ function App() {
                     <div className="row mb-3">
                       <label
                         htmlFor="settings"
-                        className="col-sm-2 col-form-label"
+                        className="col-sm-4 col-form-label"
                       >
                         Upload Settings
                       </label>
-                      <div className="col-sm-10">
+                      <div className="col-sm-8">
                         <input
                           className="form-control"
                           type="file"
@@ -257,7 +257,7 @@ function App() {
                     </div>
                     <hr />
                     <div className="row mb-3 g-3 align-items-ceter">
-                      <div className="col-auto">
+                      <div className="col-sm-4">
                         <label
                           htmlFor="primaryColor"
                           className="col-form-label"
@@ -265,7 +265,7 @@ function App() {
                           Primary
                         </label>
                       </div>
-                      <div className="col-auto">
+                      <div className="col-sm-4">
                         <input
                           type="color"
                           className="form-control form-control-color"
@@ -276,12 +276,12 @@ function App() {
                           title="Choose your color"
                         />
                       </div>
-                      <div className="col-auto">
+                      <div className="col-sm-4">
                         <span className="form-text">{state.primary}</span>
                       </div>
                     </div>
                     <div className="row mb-3 g-3 align-items-ceter">
-                      <div className="col-auto">
+                      <div className="col-sm-4">
                         <label
                           htmlFor="secondaryColor"
                           className="col-form-label"
@@ -289,7 +289,7 @@ function App() {
                           Secondary
                         </label>
                       </div>
-                      <div className="col-auto">
+                      <div className="col-sm-4">
                         <input
                           type="color"
                           className="form-control form-control-color"
@@ -300,12 +300,12 @@ function App() {
                           title="Choose your color"
                         />
                       </div>
-                      <div className="col-auto">
+                      <div className="col-sm-4">
                         <span className="form-text">{state.secondary}</span>
                       </div>
                     </div>
                     <div className="row mb-3 g-3 align-items-ceter">
-                      <div className="col-auto">
+                      <div className="col-sm-4">
                         <label
                           htmlFor="tertiaryColor"
                           className="col-form-label"
@@ -313,7 +313,7 @@ function App() {
                           Tertiary
                         </label>
                       </div>
-                      <div className="col-auto">
+                      <div className="col-sm-4">
                         <input
                           type="color"
                           className="form-control form-control-color"
@@ -324,15 +324,15 @@ function App() {
                           title="Choose your color"
                         />
                       </div>
-                      <div className="col-auto">
+                      <div className="col-sm-4">
                         <span className="form-text">{state.tertiary}</span>
                       </div>
                     </div>
                     <div className="row mb-3">
-                      <label htmlFor="logo" className="col-sm-2 col-form-label">
+                      <label htmlFor="logo" className="col-sm-4 col-form-label">
                         Logo
                       </label>
-                      <div className="col-sm-10">
+                      <div className="col-sm-8">
                         <input
                           className="form-control"
                           type="file"
@@ -346,11 +346,11 @@ function App() {
                     <div className="row mb-3">
                       <label
                         htmlFor="formRoundness"
-                        className="col-sm-2 col-form-label"
+                        className="col-sm-4 col-form-label"
                       >
                         Form Roundness
                       </label>
-                      <div className="col-sm-10">
+                      <div className="col-sm-8">
                         <input
                           className="form-control"
                           type="text"
@@ -364,11 +364,11 @@ function App() {
                     <div className="row mb-3">
                       <label
                         htmlFor="buttonRoundness"
-                        className="col-sm-2 col-form-label"
+                        className="col-sm-4 col-form-label"
                       >
                         Button Roundness
                       </label>
-                      <div className="col-sm-10">
+                      <div className="col-sm-8">
                         <input
                           className="form-control"
                           type="text"
@@ -392,11 +392,11 @@ function App() {
                     <div className="row mb-3">
                       <label
                         htmlFor="backgroundImage"
-                        className="col-sm-2 col-form-label"
+                        className="col-sm-4 col-form-label"
                       >
                         Background Image
                       </label>
-                      <div className="col-sm-10">
+                      <div className="col-sm-8">
                         <input
                           className="form-control"
                           type="file"
@@ -410,11 +410,11 @@ function App() {
                     <div className="row mb-3">
                       <label
                         htmlFor="backgroundRepeat"
-                        className="col-sm-2 col-form-label"
+                        className="col-sm-4 col-form-label"
                       >
                         Background Repeat
                       </label>
-                      <div className="col-sm-10">
+                      <div className="col-sm-8">
                         <input
                           className="form-control"
                           type="text"
@@ -428,11 +428,11 @@ function App() {
                     <div className="row mb-3">
                       <label
                         htmlFor="backgroundSize"
-                        className="col-sm-2 col-form-label"
+                        className="col-sm-4 col-form-label"
                       >
                         Background Size
                       </label>
-                      <div className="col-sm-10">
+                      <div className="col-sm-8">
                         <input
                           className="form-control"
                           type="text"
@@ -446,11 +446,11 @@ function App() {
                     <div className="row mb-3">
                       <label
                         htmlFor="backgroundPosition"
-                        className="col-sm-2 col-form-label"
+                        className="col-sm-4 col-form-label"
                       >
                         Background Position
                       </label>
-                      <div className="col-sm-10">
+                      <div className="col-sm-8">
                         <input
                           className="form-control"
                           type="text"
@@ -462,10 +462,10 @@ function App() {
                       </div>
                     </div>
                     <div className="row mb-3">
-                      <label htmlFor="font" className="col-sm-2 col-form-label">
+                      <label htmlFor="font" className="col-sm-4 col-form-label">
                         Font
                       </label>
-                      <div className="col-sm-10">
+                      <div className="col-sm-8">
                         <input
                           className="form-control"
                           type="text"
@@ -503,11 +503,11 @@ function App() {
                     <div className="row mb-3">
                       <label
                         htmlFor="emailReplyTo"
-                        className="col-sm-2 col-form-label"
+                        className="col-sm-4 col-form-label"
                       >
                         Reply-To
                       </label>
-                      <div className="col-sm-10">
+                      <div className="col-sm-8">
                         <input
                           className="form-control"
                           type="text"
@@ -521,11 +521,11 @@ function App() {
                     <div className="row mb-3">
                       <label
                         htmlFor="emailSubject"
-                        className="col-sm-2 col-form-label"
+                        className="col-sm-4 col-form-label"
                       >
                         Subject
                       </label>
-                      <div className="col-sm-10">
+                      <div className="col-sm-8">
                         <input
                           className="form-control"
                           type="text"
@@ -556,11 +556,11 @@ function App() {
                     <div className="row mb-3">
                       <label
                         htmlFor="emailLead"
-                        className="col-sm-2 col-form-label"
+                        className="col-sm-4 col-form-label"
                       >
                         Lead
                       </label>
-                      <div className="col-sm-10">
+                      <div className="col-sm-8">
                         <input
                           className="form-control"
                           type="text"
@@ -574,11 +574,11 @@ function App() {
                     <div className="row mb-3">
                       <label
                         htmlFor="emailText"
-                        className="col-sm-2 col-form-label"
+                        className="col-sm-4 col-form-label"
                       >
                         Text
                       </label>
-                      <div className="col-sm-10">
+                      <div className="col-sm-8">
                         <input
                           className="form-control"
                           type="text"
@@ -592,11 +592,11 @@ function App() {
                     <div className="row mb-3">
                       <label
                         htmlFor="emailSignature"
-                        className="col-sm-2 col-form-label"
+                        className="col-sm-4 col-form-label"
                       >
                         Signature
                       </label>
-                      <div className="col-sm-10">
+                      <div className="col-sm-8">
                         <textarea
                           className="form-control"
                           id="emailSignature"
@@ -610,11 +610,11 @@ function App() {
                     <div className="row mb-3">
                       <label
                         htmlFor="emailButton"
-                        className="col-sm-2 col-form-label"
+                        className="col-sm-4 col-form-label"
                       >
                         Button Text
                       </label>
-                      <div className="col-sm-10">
+                      <div className="col-sm-8">
                         <input
                           className="form-control"
                           type="text"
