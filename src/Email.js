@@ -1,6 +1,10 @@
 import React from "react";
 import { marked } from "marked";
 
+import sadIcon from "./icon_sad.svg";
+import neutralIcon from "./icon_neutral.svg";
+import happyIcon from "./icon_happy.svg";
+
 function Email(props) {
   const { tertiary } = props.themes;
   const {
@@ -11,6 +15,7 @@ function Email(props) {
     logoOutside,
     emailLead,
     emailText,
+    emailCentered,
     emailFooter,
     emailButtonType,
   } = props;
@@ -67,7 +72,7 @@ function Email(props) {
                     src={logo}
                     alt="logo"
                     className="logo"
-                    style={{ maxWidth: "25em" }}
+                    style={{ maxWidth: "95%" }}
                   />
                 </div>
               )}
@@ -76,8 +81,17 @@ function Email(props) {
                   {logo && !logoOutside && (
                     <img src={logo} alt="logo" className="logo" />
                   )}
-                  <p className="lead">{emailLead}</p>
-                  <p>{emailText}</p>
+                  <p
+                    className="lead"
+                    style={{ textAlign: emailCentered ? "center" : "inherit" }}
+                  >
+                    {emailLead}
+                  </p>
+                  <p
+                    style={{ textAlign: emailCentered ? "center" : "inherit" }}
+                  >
+                    {emailText}
+                  </p>
                   {emailButtonType === "simple" && (
                     <button
                       type="button"
@@ -195,13 +209,19 @@ function Email(props) {
                     <div className="csat container text-center">
                       <div className="row g-2">
                         <div className="col">
-                          <button className="emoji btn">☹️</button>
+                          <button className="emoji btn">
+                            <img src={sadIcon} alt="Sad" />
+                          </button>
                         </div>
                         <div className="col">
-                          <button className="emoji btn">😐</button>
+                          <button className="emoji btn">
+                            <img src={neutralIcon} alt="Indifferent" />
+                          </button>
                         </div>
                         <div className="col">
-                          <button className="emoji btn">😃</button>
+                          <button className="emoji btn">
+                            <img src={happyIcon} alt="Happy" />
+                          </button>
                         </div>
                       </div>
                     </div>

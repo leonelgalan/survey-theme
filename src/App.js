@@ -28,6 +28,7 @@ function App() {
     logoOutside: false,
     emailReplyTo: "support@example.com",
     emailSubject: "Your Feedback is Important",
+    emailCentered: true,
     emailLead: "Thank you for your feedback!",
     emailText: "We appreciate your feedback!",
     emailFooter: "Your friends at **Example**\n\n<small>Street Address</small>",
@@ -568,6 +569,23 @@ function App() {
                           onChange={handleChange}
                         />
                       </div>
+                    </div>
+                    <div className="row mb-3 form-check form-switch">
+                      <input
+                        className="form-check-input"
+                        type="checkbox"
+                        role="switch"
+                        name="emailCentered"
+                        id="emailCentered"
+                        checked={state.emailCentered}
+                        onChange={handleChange}
+                      />
+                      <label
+                        className="form-check-label"
+                        htmlFor="emailCentered"
+                      >
+                        Center Text?
+                      </label>
                     </div>
                     <div className="row mb-3">
                       <label
