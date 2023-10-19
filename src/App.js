@@ -39,7 +39,7 @@ function App() {
     const { name, value, checked, files, type, accept } = event.target;
     window.target = event.target;
 
-    if (files !== null) {
+    if (files !== null && files !== undefined) {
       const file = files[0];
       if (file === undefined) {
         return;
@@ -161,11 +161,11 @@ function App() {
     console.log(link);
 
     // clean up "a" element & remove ObjectURL
-    // document.body.removeChild(link);
-    // URL.revokeObjectURL(href);
+    document.body.removeChild(link);
+    URL.revokeObjectURL(href);
   };
 
-  const dark = color(color(state.primary).formatHsl()).l < 0.5;
+  const dark = color(color(state.primary).formatHsl()).l < 0.65;
 
   return (
     <div className="container-fluid">
@@ -613,12 +613,12 @@ function App() {
                         Footer
                       </label>
                       <div className="col-sm-10">
-                        <input
+                        <textarea
                           className="form-control"
-                          type="text"
                           id="emailFooter"
                           value={state.emailFooter}
                           name="emailFooter"
+                          rows="4"
                           onChange={handleChange}
                         />
                       </div>

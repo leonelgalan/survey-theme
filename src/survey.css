@@ -9,8 +9,8 @@
 
 
 .emailContent {
-  height: 601px;
-  padding-top: 50px;
+  min-height: 601px;
+  padding-top: 32px;
 }
 
 

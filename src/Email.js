@@ -1,4 +1,5 @@
 import React from "react";
+import { marked } from "marked";
 
 function Email(props) {
   const { primary, tertiary } = props.themes;
@@ -29,6 +30,9 @@ function Email(props) {
   const formRoundness = adjustRoundness(props.formRoundness);
   const buttonRoundness = adjustRoundness(props.buttonRoundness);
 
+  window.emailFooter = emailFooter;
+  window.marked = marked;
+
   return (
     <>
       <div className="wrapper" style={{ width: mobile ? "360px" : "90%" }}>
@@ -43,7 +47,13 @@ function Email(props) {
 
         <div className="row">
           <div className="col">
-            <div className="emailContent" style={{ backgroundColor: tertiary }}>
+            <div
+              className="emailContent"
+              style={{
+                backgroundColor: tertiary,
+                paddingTop: logo && logoOutside ? "0" : undefined,
+              }}
+            >
               {logo && logoOutside && (
                 <div
                   style={{ margin: "0 auto", maxWidth: "95%", width: "30rem" }}
@@ -139,7 +149,10 @@ function Email(props) {
                       </div>
                     </div>
                   )}
-                  <p className="footer">{emailFooter}</p>
+                  <div
+                    className="footer"
+                    dangerouslySetInnerHTML={{ __html: marked(emailFooter) }}
+                  ></div>
                 </div>
               </div>
             </div>

@@ -35,3 +35,7 @@ body.modal-open .modal-backdrop {
 .emailContent img.logo {
   max-height: 10rem;
 }
+
+.footer {
+  margin-top: 2em;
+}
