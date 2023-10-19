@@ -28,7 +28,7 @@ function Email(props) {
   }
 
   const formRoundness = adjustRoundness(props.formRoundness);
-  const buttonRoundness = adjustRoundness(props.buttonRoundness);
+  const borderRadius = adjustRoundness(props.buttonRoundness);
 
   window.emailFooter = emailFooter;
   window.marked = marked;
@@ -85,7 +85,7 @@ function Email(props) {
                       style={{
                         width: "120px",
                         height: "38px",
-                        borderRadius: buttonRoundness,
+                        borderRadius: borderRadius,
                       }}
                     />
                   )}
@@ -93,47 +93,100 @@ function Email(props) {
                     <div className="nps container text-center">
                       <div className="row g-2">
                         <div className="col">
-                          <button className="brand btn">
+                          <button
+                            className="brand btn"
+                            style={{ borderRadius: borderRadius }}
+                          >
                             10 - Very Likely
                           </button>
                         </div>
                       </div>
                       <div className="row g-2">
                         <div className="col">
-                          <button className="brand btn">9</button>
+                          <button
+                            className="brand btn"
+                            style={{ borderRadius: borderRadius }}
+                          >
+                            9
+                          </button>
                         </div>
                         <div className="col">
-                          <button className="brand btn">8</button>
+                          <button
+                            className="brand btn"
+                            style={{ borderRadius: borderRadius }}
+                          >
+                            8
+                          </button>
                         </div>
                         <div className="col">
-                          <button className="brand btn">7</button>
-                        </div>
-                      </div>
-                      <div className="row g-2">
-                        <div className="col">
-                          <button className="brand btn">6</button>
-                        </div>
-                        <div className="col">
-                          <button className="brand btn">5</button>
-                        </div>
-                        <div className="col">
-                          <button className="brand btn">4</button>
-                        </div>
-                      </div>
-                      <div className="row g-2">
-                        <div className="col">
-                          <button className="brand btn">3</button>
-                        </div>
-                        <div className="col">
-                          <button className="brand btn">2</button>
-                        </div>
-                        <div className="col">
-                          <button className="brand btn">1</button>
+                          <button
+                            className="brand btn"
+                            style={{ borderRadius: borderRadius }}
+                          >
+                            7
+                          </button>
                         </div>
                       </div>
                       <div className="row g-2">
                         <div className="col">
-                          <button className="brand btn">0 - Not Likely</button>
+                          <button
+                            className="brand btn"
+                            style={{ borderRadius: borderRadius }}
+                          >
+                            6
+                          </button>
+                        </div>
+                        <div className="col">
+                          <button
+                            className="brand btn"
+                            style={{ borderRadius: borderRadius }}
+                          >
+                            5
+                          </button>
+                        </div>
+                        <div className="col">
+                          <button
+                            className="brand btn"
+                            style={{ borderRadius: borderRadius }}
+                          >
+                            4
+                          </button>
+                        </div>
+                      </div>
+                      <div className="row g-2">
+                        <div className="col">
+                          <button
+                            className="brand btn"
+                            style={{ borderRadius: borderRadius }}
+                          >
+                            3
+                          </button>
+                        </div>
+                        <div className="col">
+                          <button
+                            className="brand btn"
+                            style={{ borderRadius: borderRadius }}
+                          >
+                            2
+                          </button>
+                        </div>
+                        <div className="col">
+                          <button
+                            className="brand btn"
+                            style={{ borderRadius: borderRadius }}
+                          >
+                            1
+                          </button>
+                        </div>
+                      </div>
+                      <div className="row g-2">
+                        <div className="col">
+                          <button
+                            className="brand btn"
+                            style={{ borderRadius: borderRadius }}
+                          >
+                            0 - Not Likely
+                          </button>
                         </div>
                       </div>
                     </div>
