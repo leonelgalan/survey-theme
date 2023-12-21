@@ -13,6 +13,7 @@ function Survey(props) {
       <link
         href={`https://fonts.googleapis.com/css?family=${fontURLSafe}`}
         rel="stylesheet"
+        crossOrigin="anonymous"
       ></link>
       <div
         className=""

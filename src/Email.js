@@ -85,11 +85,12 @@ function Email(props) {
                   >
                     {emailLead}
                   </p>
-                  <p
+                  <div
                     style={{ textAlign: emailCentered ? "center" : "inherit" }}
-                  >
-                    {emailText}
-                  </p>
+                    dangerouslySetInnerHTML={{
+                      __html: marked(emailText || ""),
+                    }}
+                  ></div>
                   {emailCTA === "simple" && (
                     <button
                       type="button"

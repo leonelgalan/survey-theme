@@ -3,6 +3,8 @@ import "./App.css";
 
 import "bootstrap";
 import { color } from "d3-color";
+import domtoimage from "dom-to-image-more";
+import * as download from "downloadjs";
 
 import Survey from "./Survey";
 import Email from "./Email";
@@ -153,6 +155,28 @@ function App() {
           <i className={`icon bi-${state.mobile ? "display" : "phone"}`} />{" "}
           Preview
         </button>
+        <button
+          className="btn btn-primary"
+          onClick={(event) => {
+            const node = document.getElementById("myTabContent2");
+            node.setAttribute("style", "width: 800px");
+            domtoimage
+              .toPng(node, {
+                height: 800,
+                width: 800,
+                bgcolor: "#000000",
+                style: {
+                  padding: "10px",
+                },
+              })
+              .then(function (dataUrl) {
+                node.removeAttribute("style");
+                download(dataUrl, "screenshot.png");
+              });
+          }}
+        >
+          <i className={`icon bi-image`} /> Screenshot
+        </button>
       </div>
       {/* Modal */}
       <div
@@ -220,7 +244,7 @@ function App() {
                   </button>
                 </li>
               </ul>
-              <div className="tab-content" id="myTabContent">
+              <div className="tab-content" id="myTabContent1">
                 <div
                   className="tab-pane fade show active"
                   id="home-tab-pane"
@@ -579,12 +603,12 @@ function App() {
                         Text
                       </label>
                       <div className="col-sm-8">
-                        <input
+                        <textarea
                           className="form-control"
-                          type="text"
                           id="emailText"
                           value={state.emailText}
                           name="emailText"
+                          rows="4"
                           onChange={handleChange}
                         />
                       </div>
@@ -720,7 +744,7 @@ function App() {
           </button>
         </li>
       </ul>
-      <div className="tab-content" id="myTabContent">
+      <div className="tab-content" id="myTabContent2">
         <div
           className="tab-pane fade show active"
           id="survey-tab-pane"
