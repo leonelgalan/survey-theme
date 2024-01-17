@@ -19,6 +19,7 @@ function App() {
     font: "Open Sans",
     logo: null,
     logoURL: null,
+    logoWidth: 90,
     backgroundImage: undefined,
     backgroundImageURL: undefined,
     backgroundRepeat: "",
@@ -363,6 +364,27 @@ function App() {
                           id="logo"
                           name="logo"
                           accept="image/*"
+                          onChange={handleChange}
+                        />
+                      </div>
+                    </div>
+                    <div className="row mb-3">
+                      <label
+                        htmlFor="logoWidth"
+                        className="col-sm-4 col-form-label"
+                      >
+                        Logo Width
+                      </label>
+                      <div className="col-sm-8">
+                        <input
+                          className="form-range"
+                          type="range"
+                          id="logoWidth"
+                          name="logoWidth"
+                          min="10"
+                          max="100"
+                          step="10"
+                          value={state.logoWidth}
                           onChange={handleChange}
                         />
                       </div>

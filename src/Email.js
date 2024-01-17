@@ -13,6 +13,7 @@ function Email(props) {
     emailSubject,
     logo,
     logoOutside,
+    logoWidth,
     emailLead,
     emailText,
     emailCentered,
@@ -70,14 +71,19 @@ function Email(props) {
                     src={logo}
                     alt="logo"
                     className="logo"
-                    style={{ maxWidth: "95%" }}
+                    style={{ maxWidth: `${logoWidth}%` }}
                   />
                 </div>
               )}
               <div className="card" style={{ borderRadius: formRoundness }}>
                 <div className="card-body">
                   {logo && !logoOutside && (
-                    <img src={logo} alt="logo" className="logo" />
+                    <img
+                      src={logo}
+                      alt="logo"
+                      className="logo"
+                      style={{ maxWidth: `${logoWidth}%` }}
+                    />
                   )}
                   <p
                     className="lead"

@@ -4,7 +4,7 @@ import "./survey.css";
 
 function Survey(props) {
   const { primary, secondary, tertiary } = props.themes;
-  const { font = "" } = props;
+  const { font = "", logoWidth } = props;
 
   const fontURLSafe = font.replace(/\s+/g, "+");
 
@@ -50,7 +50,12 @@ function Survey(props) {
             >
               <div className="card-body">
                 {props.logo && (
-                  <img src={props.logo} alt="logo" className="logo" />
+                  <img
+                    src={props.logo}
+                    alt="logo"
+                    className="logo"
+                    style={{ maxWidth: `${logoWidth}%` }}
+                  />
                 )}
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
